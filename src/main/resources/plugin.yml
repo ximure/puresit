@@ -1,0 +1,10 @@
+name: PureSit
+version: 0.1
+main: org.ximure.puresit.PureSit
+api-version: 1.16
+author: ximure
+description: Small plugins which enables usage of /sit command to sit in-game
+commands:
+  sit:
+    description: Use this command to sit in-game
+    usage: /<command>
