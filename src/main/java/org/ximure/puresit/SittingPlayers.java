@@ -18,8 +18,4 @@ public class SittingPlayers {
     public void removeSittingStatus(UUID playerUUID) {
         sittingPlayers.remove(playerUUID);
     }
-
-    public void clearSittingStatuses() {
-        sittingPlayers.clear();
-    }
 }

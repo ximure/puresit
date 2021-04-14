@@ -14,6 +14,7 @@ import java.util.UUID;
 import static org.bukkit.Bukkit.getServer;
 
 public class CommandSit implements CommandExecutor {
+
     // Constructor for sittingplayers methods
     private final SittingPlayers sittingPlayers;
     public CommandSit(SittingPlayers sittingPlayers) {
@@ -26,16 +27,13 @@ public class CommandSit implements CommandExecutor {
         if (sender instanceof Player) {
             final Player player = (Player) sender;
             final UUID playerUUID = player.getUniqueId();
+
             // If player is already sitting, we'll do nothing
-            if (sittingPlayers.isSitting(playerUUID)) {
+            if (sittingPlayers.isSitting(playerUUID))
                 player.sendMessage("[Pure] Вы уже сидите");
-                return true;
-            }
             // Or if player isn't on ground
-            if (!player.isOnGround() && !sittingPlayers.isSitting(playerUUID)) {
+            else if (!player.isOnGround() && !sittingPlayers.isSitting(playerUUID))
                 player.sendMessage("[Pure] Вы не можете сесть в полёте");
-                return true;
-            }
             else {
                 final World world = getServer().getWorld("world");
                 assert world != null;
