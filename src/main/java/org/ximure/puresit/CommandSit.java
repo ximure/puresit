@@ -1,5 +1,6 @@
 package org.ximure.puresit;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.Command;
@@ -30,10 +31,10 @@ public class CommandSit implements CommandExecutor {
 
             // If player is already sitting, we'll do nothing
             if (sittingPlayers.isSitting(playerUUID))
-                player.sendMessage("[Pure] Вы уже сидите");
+                player.sendMessage(ChatColor.RED + "[Pure]" + ChatColor.RESET + " Вы уже сидите");
             // Or if player isn't on ground
             else if (!player.isOnGround() && !sittingPlayers.isSitting(playerUUID))
-                player.sendMessage("[Pure] Вы не можете сесть в полёте");
+                player.sendMessage(ChatColor.RED + "[Pure]" + ChatColor.RESET + " Вы не можете сесть в полёте");
             else {
                 final World world = getServer().getWorld("world");
                 assert world != null;
@@ -47,7 +48,7 @@ public class CommandSit implements CommandExecutor {
                 armorStand.setVisible(false);
                 armorStand.setGravity(false);
                 armorStand.addPassenger(player);
-                player.sendMessage("[Pure] Вы сели");
+                player.sendMessage(ChatColor.GREEN + "[Pure]" + ChatColor.RESET + " Вы сели");
             }
         }
         return true;

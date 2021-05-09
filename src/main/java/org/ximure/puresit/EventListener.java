@@ -49,6 +49,7 @@ public class EventListener implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
+        boolean test = player.isSleeping();
         Entity armorStand = event.getPlayer().getVehicle();
         assert armorStand != null;
         if (sittingPlayers.isSitting(player.getUniqueId())) {
